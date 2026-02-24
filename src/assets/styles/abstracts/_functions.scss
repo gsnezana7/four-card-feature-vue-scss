@@ -1,0 +1,20 @@
+
+@use "sass:math";
+@use "sass:string";
+
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) + rem;
+}
+
+@function fluid($min-px, $max-px, $min-bp: 375, $max-bp: 1440) {
+  $slope: math.div($max-px - $min-px, $max-bp - $min-bp);
+  $slope-vw: $slope * 100;
+  $intercept-px: $min-px - $slope * $min-bp;
+  
+  $min-rem: rem($min-px);
+  $max-rem: rem($max-px);
+  $intercept-rem: rem($intercept-px);
+
+  @return string.unquote("clamp(#{$min-rem}, calc(#{$slope-vw}vw + #{$intercept-rem}), #{$max-rem})");
+}
+

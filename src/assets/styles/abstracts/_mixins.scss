@@ -1,0 +1,52 @@
+
+@use "sass:math"; 
+@use "functions" as *;
+@use "variables" as *;
+
+@mixin site-footer($fs: rem(11), $mt: rem(24), $color: hsl(228, 45%, 44%), $fw: 700) {
+  margin-top: $mt;
+  font-size: $fs;
+  text-align: center;
+  
+  a {
+    font-weight: $fw;
+    color: $color;
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: 2px solid $blue;
+      outline-offset: 2px;
+      transform: translateY(-5px);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin body($f-family: sans-serif, $fs: rem(16), $bg: hsl(0, 0%, 100%), $color: hsl(0, 0%, 0%)) {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+  font-family: $f-family;
+  font-size: $fs;
+  color: $color;
+  background-color: $bg;
+
+  @include flex;
+}
+
+
+
+
+
+
+
+
