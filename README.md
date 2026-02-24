@@ -27,12 +27,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub Repository](https://github.com/gsnezana7/four-card-feature-vue-scss)
+- Live Site URL: [Live Demo on Netlify](https://four-card-feature-vue-scss.netlify.app/)
 
 ## My process
 
