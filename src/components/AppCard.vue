@@ -26,7 +26,11 @@ defineProps({
   border-radius: 8px;
   background: $white;
   box-shadow: 0 15px 30px -11px rgb(131, 166, 210, 50%);
-  transition: transform .3s ease, box-shadow .3s ease;
+
+  /* ИСПРАВЛЕНО: Анимация включится только если у пользователя не активирован режим уменьшения движения */
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
 
   &--icon-supervisor {
     border-top-color: $cyan;
