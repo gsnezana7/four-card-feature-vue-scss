@@ -2,14 +2,12 @@
 defineProps({
   title: String,
   description: String,
-  icon: String,
-  borderColor: String
+  icon: String
 });
 </script>
 
 <template>
-  <!-- ИСПРАВЛЕНО: Полностью убрали атрибут :style, теперь валидатор будет доволен -->
-  <article class="card">
+  <article :class="['card', `card--${icon.replace('.svg', '')}`]">
     <h2 class="card__title">{{ title }}</h2>
     <p class="card__text">{{ description }}</p>
     <div class="card__icon-wrapper">
@@ -17,22 +15,34 @@ defineProps({
     </div>
   </article>
 </template>
+
 <style lang="scss" scoped>
 @use "../assets/styles/abstracts" as *;
 
 .card {
   padding: rem(32);
   min-height: rem(250);
-
-  /* ИСПРАВЛЕНО: Задали базовую толщину и стиль рамки, а цвет привязали к пропсу borderColor */
-  border-top: 4px solid v-bind(borderColor);
+  border-top: 4px solid;
   border-radius: 8px;
   background: $white;
   box-shadow: 0 15px 30px -11px rgb(131, 166, 210, 50%);
-
-  /* ОБРАТИ ВНИМАНИЕ: Если валидатор в этом проекте будет ругаться на транзиции, 
-     мы их тоже потом сможем спрятать в prefers-reduced-motion */
   transition: transform .3s ease, box-shadow .3s ease;
+
+  &--icon-supervisor {
+    border-top-color: $cyan;
+  }
+
+  &--icon-team-builder {
+    border-top-color: $red;
+  }
+
+  &--icon-karma {
+    border-top-color: $orange;
+  }
+
+  &--icon-calculator {
+    border-top-color: $blue;
+  }
 
   @media (hover: hover) {
     &:hover {
